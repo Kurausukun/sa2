@@ -838,8 +838,7 @@ void GoToNextLevel(void)
 static inline void StageInit_SetMusic_inline(u16 level)
 {
     if (gGameMode != GAME_MODE_MULTI_PLAYER_COLLECT_RINGS) {
-        if (gSelectedCharacter == CHARACTER_SONIC && LOADED_SAVE->unlockedLevels[CHARACTER_SONIC] <= gCurrentLevel
-            && gCurrentLevel == LEVEL_INDEX(ZONE_5, ACT_BOSS)) {
+        if (gCurrentLevel == LEVEL_INDEX(ZONE_5, ACT_BOSS)) {
             gMusicManagerState.unk1 = 0x10 | 0xE;
         } else {
             m4aSongNumStart(gLevelSongs[level]);
