@@ -47,6 +47,11 @@
 #define INCBIN_S8  INCBIN
 #define INCBIN_S16 INCBIN
 #define INCBIN_S32 INCBIN
+
+#define INCPAL(...)                                                                                                                        \
+    {                                                                                                                                      \
+        0                                                                                                                                  \
+    }
 #endif // IDE support
 
 #define ARRAY_COUNT(array) (sizeof(array) / sizeof((array)[0]))
@@ -72,10 +77,6 @@
 
 // Converts a Q24.8 fixed-point format number to a regular integer
 #define Q_24_8_TO_INT(n) ((int)((n) >> 8))
-
-#define RED_VALUE(color)   ((color)&0x1F)
-#define GREEN_VALUE(color) (((color) >> 5) & 0x1F)
-#define BLUE_VALUE(color)  (((color) >> 10) & 0x1F)
 
 #define ABS(aValue) ((aValue) >= 0 ? (aValue) : -(aValue))
 
@@ -108,10 +109,12 @@ extern struct GameConfig gUnknown_02000008;
 struct UNK_03003330 {
     // Main
     void (*unk0)(void);
-    u32 filler4;
+    // Unknown
+    void (*unk4)(void);
     // frame
     u32 unk8;
-    u16 unkC;
+
+    s16 unkC;
     u8 unkE;
     u8 unkF;
     u8 unk10;
@@ -127,7 +130,7 @@ extern u32 gUnknown_03005274;
 // These should be moved once we know
 // which files they belong to
 extern void sub_02001528(u32);
-extern void sub_020018c8(void);
+extern void InitGarden(void);
 extern void sub_0200be24(void);
 extern void sub_0200d27c(void);
 extern void sub_020018a0(void);
