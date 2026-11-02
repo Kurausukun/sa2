@@ -244,7 +244,7 @@ void ApplyItemboxEffect(Entity_ItemBox *itembox)
             gPlayer.itemEffect |= PLAYER_ITEM_EFFECT__SPEED_UP;
             gPlayer.timerSpeedup = ITEM_DURATION_SPEED_UP;
 
-            m4aMPlayTempoControl(&gMPlayInfo_BGM, 0x200);
+            m4aMPlayTempoControl(&gMPlayInfo_BGM, 0x128); // approx. 15%
 
             if (IS_MULTI_PLAYER) {
                 gPlayer.itemEffect &= ~PLAYER_ITEM_EFFECT__MP_SLOW_DOWN;
